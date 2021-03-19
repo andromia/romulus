@@ -30,8 +30,8 @@
     ]
   },
   "build": {
-    "productName": "ElectronReact",
-    "appId": "org.erb.ElectronReact",
+    "productName": "Romulus",
+    "appId": "org.erb.Romulus",
     "files": [
       "dist/",
       "node_modules/",
