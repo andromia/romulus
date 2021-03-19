@@ -106,3 +106,7 @@ a:hover {
 .interactive-icon:hover {
   opacity: 0.3;
 }
+
+.file-upload {
+  display: none;
+}

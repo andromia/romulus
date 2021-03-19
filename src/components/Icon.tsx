@@ -2,26 +2,31 @@ import React, { ReactElement } from 'react';
 import Image from 'react-bootstrap/Image';
 
 type ImageProperties = {
-  id: string;
-  className: string;
   width: string; // "100px"
   height: string; // "100px"
-  src: string;
 };
 
-const Icon = (props: ImageProperties): ReactElement => {
-  const { id, className, height, width, src } = props;
+const ClickableUploadIcon = (props: ImageProperties): ReactElement => {
+  const { height, width } = props;
 
   return (
-    <Image
-      id={id}
-      className={className}
-      src={src}
-      width={width}
-      height={height}
-      alt="icon"
-    />
+    <div>
+      <Image
+        className="interactive-icon"
+        src="../assets/upload.svg"
+        width={width}
+        height={height}
+        alt="icon"
+        onClick={() => document.getElementById('clickable-upload')?.click()}
+      />
+      <input
+        id="clickable-upload"
+        className="file-upload"
+        type="file"
+        name="upload"
+      />
+    </div>
   );
 };
 
-export default Icon;
+export default ClickableUploadIcon;

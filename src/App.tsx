@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.global.css';
 import TitleBar from './components/TitleBar';
-import Icon from './components/Icon';
+import ClickableUploadIcon from './components/Icon';
 
 /* Home Page
  * The home page will have a centered upload icon if
@@ -18,13 +18,7 @@ const Home = () => {
     <div className="home-container">
       <TitleBar />
       <div className="center-div">
-        <Icon
-          id="upload-icon"
-          className="interactive-icon"
-          src="../assets/upload.svg"
-          height="70px"
-          width="70px"
-        />
+        <ClickableUploadIcon height="70px" width="70px" />
       </div>
     </div>
   );
