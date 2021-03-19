@@ -157,27 +157,35 @@ export default class MenuBuilder {
         {
           label: 'Learn More',
           click() {
-            shell.openExternal('https://electronjs.org');
+            shell.openExternal('https://github.com/andromia/romulus');
           },
         },
         {
           label: 'Documentation',
           click() {
             shell.openExternal(
-              'https://github.com/electron/electron/tree/master/docs#readme'
+              'https://github.com/andromia/romulus/blob/master/README.md'
             );
           },
         },
         {
           label: 'Community Discussions',
           click() {
-            shell.openExternal('https://www.electronjs.org/community');
+            shell.openExternal(
+              'https://github.com/andromia/romulus/discussions'
+            );
           },
         },
         {
           label: 'Search Issues',
           click() {
-            shell.openExternal('https://github.com/electron/electron/issues');
+            shell.openExternal('https://github.com/andromia/romulus/issues');
+          },
+        },
+        {
+          label: 'Discord',
+          click() {
+            shell.openExternal('https://discord.gg/t9MB873XkE');
           },
         },
       ],
@@ -258,27 +266,35 @@ export default class MenuBuilder {
           {
             label: 'Learn More',
             click() {
-              shell.openExternal('https://electronjs.org');
+              shell.openExternal('https://github.com/andromia/romulus');
             },
           },
           {
             label: 'Documentation',
             click() {
               shell.openExternal(
-                'https://github.com/electron/electron/tree/master/docs#readme'
+                'https://github.com/andromia/romulus/blob/master/README.md'
               );
             },
           },
           {
             label: 'Community Discussions',
             click() {
-              shell.openExternal('https://www.electronjs.org/community');
+              shell.openExternal(
+                'https://github.com/andromia/romulus/discussions'
+              );
             },
           },
           {
             label: 'Search Issues',
             click() {
-              shell.openExternal('https://github.com/electron/electron/issues');
+              shell.openExternal('https://github.com/andromia/romulus/issues');
+            },
+          },
+          {
+            label: 'Discord',
+            click() {
+              shell.openExternal('https://discord.gg/t9MB873XkE');
             },
           },
         ],
