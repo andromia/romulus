@@ -20,7 +20,7 @@ const close = (appWindow: BrowserWindow) => {
 };
 
 const TitleBar = (): ReactElement => {
-  const appWindow = remote.getCurrentWindow();
+  const appWindow = remote?.getCurrentWindow();
 
   return (
     <div id="title-bar">

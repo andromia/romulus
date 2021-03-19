@@ -38,9 +38,9 @@ const Home = () => {
  * along with run history and statistics. Statistics will
  * be visualized with d3.js.
  */
-const Setup = () => {
-  return <div />;
-};
+// const Setup = () => {
+//  return <div />;
+// };
 
 export default function App() {
   return (
