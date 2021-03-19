@@ -3,6 +3,7 @@
     "target": "ES2018",
     "module": "CommonJS",
     "lib": ["dom", "esnext"],
+    "skipLibCheck": true, // TODO: why does node_modules not compile?
     "declaration": true,
     "declarationMap": true,
     "noEmit": true,
