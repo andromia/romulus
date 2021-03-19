@@ -17,6 +17,10 @@ body {
   margin: 0px;
 }
 
+#root {
+  height: 100%;
+}
+
 #title-bar {
   -webkit-app-region: drag;
   height: 24px;
@@ -49,13 +53,23 @@ button {
   border: none;
   appearance: none;
   font-size: 1.3rem;
-  box-shadow: 0px 8px 28px -6px rgba(24, 39, 75, 0.12),
-    0px 18px 88px -4px rgba(24, 39, 75, 0.14);
-  transition: transform ease-in 0.1s;
+  outline: none !important;
+}
+
+.min-btn {
+  background-color: rgb(230, 182, 94);
+}
+
+.max-btn {
+  background-color: rgb(52, 160, 52);
+}
+
+.close-btn {
+  background-color: rgb(173, 65, 65);
 }
 
 button:hover {
-  transform: scale(1.05);
+  opacity: 0.7;
 }
 
 li {
@@ -72,13 +86,23 @@ a:hover {
   cursor: pointer;
 }
 
-.HomeContainer {
+.home-container {
   text-align: center;
+  height: 100%;
 }
 
-.Home {
+.center-div {
   display: flex;
-  justify-content: center;
+  height: 100%;
+  width: 100%;
   align-items: center;
-  margin: 20px 0;
+  justify-content: center;
+}
+
+.interactive-icon {
+  opacity: 0.7;
+}
+
+.interactive-icon:hover {
+  opacity: 0.3;
 }

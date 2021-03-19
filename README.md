@@ -2,15 +2,14 @@
 
 A desktop application for scheduling python scripts.
 
-## Install
+## Install From Source
 
-`cd romulus`
-`yarn`
+Clone the repository, `cd romulus`, and run `yarn`.
 
 ## Development
 
-`yarn start`
+Run `yarn start`. The app is configured for hot-reloads for most of any changes that are made.
 
 ## Packaging
 
-`yarn package`
+Run `yarn package` to package it up into `release/`.
