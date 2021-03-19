@@ -1,15 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.global.css';
-import Logo from './Logo';
+import TitleBar from './TitleBar';
 
 const Home = () => {
   return (
     <div className="HomeContainer">
-      <div className="Home">
-        <Logo />
-      </div>
-      <h1>Romulus</h1>
+      <TitleBar />
     </div>
   );
 };
