@@ -12,7 +12,7 @@ export type ClickableUploadIconType = {
   updateFiles: any; // TODO: type of this?
 };
 
-export type ClickableScriptIconType = {
+export type ClickableFileType = {
   key: string;
   width: string; // "100px"
   height: string; // "100px"

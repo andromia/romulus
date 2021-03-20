@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import TitleBar from './components/TitleBar';
 import ClickableUploadIcon from './components/UploadIcon';
-import ClickableScriptIcon from './components/ScriptIcon';
+import ClickableFile from './components/Files';
 import { FileObjectType } from './components/Types';
 
 /* Home Page
@@ -26,29 +26,35 @@ const Home = () => {
       <TitleBar />
       <div className="center-div">
         <Container>
-          <Row>
-            <Col>
-              <ClickableUploadIcon
-                height="70px"
-                width="70px"
-                files={files}
-                updateFiles={updateFiles}
-              />
-            </Col>
-          </Row>
-        </Container>
-        {files.length > 0 && (
           <Container>
-            {files.map((file) => (
-              <ClickableScriptIcon
-                key={file.preview}
-                name={file.name}
-                height="30px"
-                width="30px"
-              />
-            ))}
+            <Row>
+              <Col>
+                <ClickableUploadIcon
+                  height="70px"
+                  width="70px"
+                  files={files}
+                  updateFiles={updateFiles}
+                />
+              </Col>
+            </Row>
           </Container>
-        )}
+          {files.length > 0 && (
+            <Container id="files-container">
+              <Row>
+                <Col>
+                  {files.map((file) => (
+                    <ClickableFile
+                      key={file.preview}
+                      name={file.name}
+                      height="30px"
+                      width="30px"
+                    />
+                  ))}
+                </Col>
+              </Row>
+            </Container>
+          )}
+        </Container>
       </div>
     </div>
   );

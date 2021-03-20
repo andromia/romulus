@@ -1,17 +1,18 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { ClickableScriptIconType } from './Types';
+import { ClickableFileType } from './Types';
 
-const ClickableScriptIcon = (props: ClickableScriptIconType) => {
+const ClickableFile = (props: ClickableFileType) => {
   const { height, width, name } = props;
 
   return (
-    <Row className="justify-content-md-center">
-      <Col sm={2}>
+    <Row className="file-row">
+      <Col md={1} className="script-icon-col">
         <Image
           className="interactive-icon script-icon"
           src="../assets/python.png"
@@ -20,11 +21,13 @@ const ClickableScriptIcon = (props: ClickableScriptIconType) => {
           alt="icon"
         />
       </Col>
-      <Col sm={10}>
-        <h1 className="script-name">{name}</h1>
+      <Col md={8} className="script-name-col">
+        <a href="#" className="script-name-clickable">
+          <h1 className="script-name">{name}</h1>
+        </a>
       </Col>
     </Row>
   );
 };
 
-export default ClickableScriptIcon;
+export default ClickableFile;
