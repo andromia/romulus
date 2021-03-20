@@ -19,9 +19,9 @@ jobs:
         with:
           node-version: 15
 
-      - name: npm install
+      - name: yarn install
         run: |
-          npm ci -timeout 300000
+          yarn install --frozen-lockfile --network-timeout 300000
 
       - name: yarn test
         env:
