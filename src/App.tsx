@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.global.css';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import TitleBar from './components/TitleBar';
-import ClickableUploadIcon from './components/Icon';
+import ClickableUploadIcon from './components/UploadIcon';
+import ClickableScriptIcon from './components/ScriptIcon';
+import { FileObjectType } from './components/Types';
 
 /* Home Page
  * The home page will have a centered upload icon if
@@ -14,11 +19,36 @@ import ClickableUploadIcon from './components/Icon';
  * row or filename to navigate to a setup page.
  */
 const Home = () => {
+  const [files, updateFiles] = useState<Array<FileObjectType>>([]);
+
   return (
     <div className="home-container">
       <TitleBar />
       <div className="center-div">
-        <ClickableUploadIcon height="70px" width="70px" />
+        <Container>
+          <Row>
+            <Col>
+              <ClickableUploadIcon
+                height="70px"
+                width="70px"
+                files={files}
+                updateFiles={updateFiles}
+              />
+            </Col>
+          </Row>
+        </Container>
+        {files.length > 0 && (
+          <Container>
+            {files.map((file) => (
+              <ClickableScriptIcon
+                key={file.preview}
+                name={file.name}
+                height="30px"
+                width="30px"
+              />
+            ))}
+          </Container>
+        )}
       </div>
     </div>
   );

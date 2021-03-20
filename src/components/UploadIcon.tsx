@@ -1,24 +1,22 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement } from 'react';
 import Image from 'react-bootstrap/Image';
+import { ClickableUploadIconType } from './Types';
 
-type ImageProperties = {
-  width: string; // "100px"
-  height: string; // "100px"
-};
-
-const ClickableUploadIcon = (props: ImageProperties): ReactElement => {
-  const { height, width } = props;
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [file, setFile] = useState({ preview: '', raw: '' });
+const ClickableUploadIcon = (props: ClickableUploadIconType): ReactElement => {
+  const { files, updateFiles, height, width } = props;
 
   const handleChange = (e: any) => {
     if (e.target.files.length) {
-      setFile({
-        preview: URL.createObjectURL(e.target.files[0]),
-        raw: e.target.files[0],
-      });
+      updateFiles([
+        ...files,
+        {
+          name: e.target.files[0].name,
+          preview: URL.createObjectURL(e.target.files[0]),
+          raw: e.target.files[0],
+        },
+      ]);
     }
   };
 
@@ -33,7 +31,6 @@ const ClickableUploadIcon = (props: ImageProperties): ReactElement => {
           alt="icon"
         />
       </label>
-      <p>{file.preview}</p>
       <input
         id="clickable-upload"
         className="file-upload"
