@@ -156,3 +156,15 @@ a:hover {
 .home-button {
   background-color: rgb(86, 150, 86);
 }
+
+.file-profile-form-container {
+  width: 20%;
+}
+
+.file-profile-form-label {
+  margin-top: 10px;
+}
+
+.file-profile-history-table {
+  margin-top: 35px;
+}
