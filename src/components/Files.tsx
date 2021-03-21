@@ -24,7 +24,7 @@ const ClickableFileRow = (props: ClickableFileType) => {
           alt="icon"
         />
       </Col>
-      <Col sm={7} className="script-name-col">
+      <Col sm={8} className="script-name-col">
         <Button
           className="clickable-script-name btn btn-secondary"
           onClick={() => history.push('/File')}
@@ -32,10 +32,10 @@ const ClickableFileRow = (props: ClickableFileType) => {
           <h1 className="script-name">{name}</h1>
         </Button>
       </Col>
-      <Col sm={2}>
+      <Col sm={1}>
         <Button className="script-run-button">Run</Button>
       </Col>
-      <Col sm={2}>
+      <Col sm={1}>
         <Button className="script-remove-button">Remove</Button>
       </Col>
     </Row>
