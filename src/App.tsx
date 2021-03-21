@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useHistory,
+} from 'react-router-dom';
 import './App.global.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 import TitleBar from './components/TitleBar';
 import ClickableUploadIcon from './components/UploadIcon';
-import ClickableFile from './components/Files';
+import ClickableFileRow from './components/Files';
 import { FileObjectType } from './components/Types';
 
 /* Home Page
@@ -43,11 +49,11 @@ const Home = () => {
               <Row>
                 <Col>
                   {files.map((file) => (
-                    <ClickableFile
+                    <ClickableFileRow
                       key={file.preview}
                       name={file.name}
-                      height="30px"
-                      width="30px"
+                      height="40px"
+                      width="40px"
                     />
                   ))}
                 </Col>
@@ -60,7 +66,7 @@ const Home = () => {
   );
 };
 
-/* Setup Page
+/* FileProfile Page
  * The set up page will have a drop down preview of the
  * script contents with it minimized (partial) by default.
  * Below there will be data about the script and its setup
@@ -68,14 +74,30 @@ const Home = () => {
  * along with run history and statistics. Statistics will
  * be visualized with d3.js.
  */
-// const Setup = () => {
-//  return <div />;
-// };
+const FileProfile = () => {
+  const history = useHistory();
+
+  return (
+    <div className="home-container">
+      <TitleBar />
+      <Container fluid className="home-button-container">
+        <Row className="home-button-row">
+          <Col md={12} className="text-right">
+            <Button className="home-button" onClick={() => history.push('/')}>
+              Home
+            </Button>
+          </Col>
+        </Row>
+      </Container>
+    </div>
+  );
+};
 
 export default function App() {
   return (
     <Router>
       <Switch>
+        <Route path="/File" component={FileProfile} />
         <Route path="/" component={Home} />
       </Switch>
     </Router>

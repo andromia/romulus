@@ -3,6 +3,7 @@
 import React, { ReactElement } from 'react';
 import Image from 'react-bootstrap/Image';
 import { ClickableUploadIconType } from './Types';
+import icon from '../../assets/upload.svg';
 
 const ClickableUploadIcon = (props: ClickableUploadIconType): ReactElement => {
   const { files, updateFiles, height, width } = props;
@@ -25,7 +26,7 @@ const ClickableUploadIcon = (props: ClickableUploadIconType): ReactElement => {
       <label htmlFor="clickable-upload">
         <Image
           className="interactive-icon"
-          src="../assets/upload.svg"
+          src={icon}
           width={width}
           height={height}
           alt="icon"
