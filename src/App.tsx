@@ -14,7 +14,7 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import TitleBar from './components/TitleBar';
 import ClickableUploadIcon from './components/UploadIcon';
-import ClickableFileRow from './components/Files';
+import ClickableFileRow from './components/File';
 import { FileObjectType } from './components/Types';
 
 /* Home Page
@@ -55,8 +55,8 @@ const Home = () => {
                   <Col>
                     {files.map((file) => (
                       <ClickableFileRow
-                        key={file.preview}
-                        name={file.name}
+                        key={file.path}
+                        file={file}
                         height="40px"
                         width="40px"
                       />

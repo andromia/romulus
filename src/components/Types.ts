@@ -3,6 +3,7 @@ export type FileObjectType = {
   name: string;
   preview: string;
   raw: string;
+  path: string;
 };
 
 export type ClickableUploadIconType = {
@@ -16,5 +17,5 @@ export type ClickableFileType = {
   key: string;
   width: string; // "100px"
   height: string; // "100px"
-  name: string;
+  file: FileObjectType;
 };

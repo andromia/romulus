@@ -16,6 +16,7 @@ const ClickableUploadIcon = (props: ClickableUploadIconType): ReactElement => {
           name: e.target.files[0].name,
           preview: URL.createObjectURL(e.target.files[0]),
           raw: e.target.files[0],
+          path: e.target.files[0].path,
         },
       ]);
     }

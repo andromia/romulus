@@ -10,7 +10,7 @@ import { ClickableFileType } from './Types';
 import icon from '../../assets/python.png';
 
 const ClickableFileRow = (props: ClickableFileType) => {
-  const { height, width, name } = props;
+  const { height, width, file } = props;
   const history = useHistory();
 
   return (
@@ -28,8 +28,9 @@ const ClickableFileRow = (props: ClickableFileType) => {
         <Button
           className="clickable-script-name btn btn-secondary"
           onClick={() => history.push('/File')}
+          title={file.path}
         >
-          <h1 className="script-name">{name}</h1>
+          <h1 className="script-name">{file.name}</h1>
         </Button>
       </Col>
       <Col sm={1}>
