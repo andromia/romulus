@@ -32,34 +32,38 @@ const Home = () => {
       <TitleBar />
       <div className="center-div">
         <Container>
-          <Container>
-            <Row>
-              <Col>
-                <ClickableUploadIcon
-                  height="70px"
-                  width="70px"
-                  files={files}
-                  updateFiles={updateFiles}
-                />
-              </Col>
-            </Row>
-          </Container>
-          {files.length > 0 && (
-            <Container id="files-container">
+          <Row>
+            <Container id="home-upload-icon-container">
               <Row>
                 <Col>
-                  {files.map((file) => (
-                    <ClickableFileRow
-                      key={file.preview}
-                      name={file.name}
-                      height="40px"
-                      width="40px"
-                    />
-                  ))}
+                  <ClickableUploadIcon
+                    height="70px"
+                    width="70px"
+                    files={files}
+                    updateFiles={updateFiles}
+                  />
                 </Col>
               </Row>
             </Container>
-          )}
+          </Row>
+          <Row>
+            {files.length > 0 && (
+              <Container id="files-container">
+                <Row>
+                  <Col>
+                    {files.map((file) => (
+                      <ClickableFileRow
+                        key={file.preview}
+                        name={file.name}
+                        height="40px"
+                        width="40px"
+                      />
+                    ))}
+                  </Col>
+                </Row>
+              </Container>
+            )}
+          </Row>
         </Container>
       </div>
     </div>

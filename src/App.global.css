@@ -99,9 +99,16 @@ a:hover {
   justify-content: center;
 }
 
+#home-upload-icon-container {
+  margin-bottom: 110px;
+}
+
 #files-container {
-  margin-top: 50px;
-  width: 60%;
+  width: 100%;
+  height: 50%;
+  bottom: 0px;
+  position: absolute;
+  overflow: auto;
 }
 
 .file-row {
