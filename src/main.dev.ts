@@ -26,6 +26,10 @@ export default class AppUpdater {
 
 let mainWindow: BrowserWindow | null = null;
 
+const Store = require('electron-store');
+
+Store.initRenderer();
+
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
   sourceMapSupport.install();

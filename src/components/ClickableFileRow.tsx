@@ -7,11 +7,12 @@ import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import RunButton from './RunButton';
+import RemoveButton from './RemoveButton';
 import { ClickableFileType } from './Types';
 import icon from '../../assets/python.png';
 
 const ClickableFileRow = (props: ClickableFileType) => {
-  const { height, width, file } = props;
+  const { height, width, file, setFiles } = props;
   const history = useHistory();
 
   return (
@@ -38,7 +39,7 @@ const ClickableFileRow = (props: ClickableFileType) => {
         <RunButton path={file.path} />
       </Col>
       <Col md={2} className="file-row-remove-button-col">
-        <Button className="file-remove-button">Remove</Button>
+        <RemoveButton path={file.path} setFiles={setFiles} />
       </Col>
     </Row>
   );

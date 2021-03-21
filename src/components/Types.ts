@@ -4,13 +4,13 @@ export type FileObjectType = {
   preview: string;
   raw: string;
   path: string;
+  type: string;
 };
 
 export type ClickableUploadIconType = {
   width: string; // "100px"
   height: string; // "100px"
-  files: Array<FileObjectType>;
-  updateFiles: any; // TODO: type of this?
+  setFiles: any;
 };
 
 export type ClickableFileType = {
@@ -18,8 +18,14 @@ export type ClickableFileType = {
   width: string; // "100px"
   height: string; // "100px"
   file: FileObjectType;
+  setFiles: any;
 };
 
 export type RunButtonType = {
   path: string;
+};
+
+export type RemoveButtonType = {
+  path: string;
+  setFiles: any;
 };

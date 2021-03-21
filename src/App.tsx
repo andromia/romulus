@@ -15,7 +15,10 @@ import Button from 'react-bootstrap/Button';
 import TitleBar from './components/TitleBar';
 import ClickableUploadIcon from './components/UploadIcon';
 import ClickableFileRow from './components/ClickableFileRow';
-import { FileObjectType } from './components/Types';
+
+const Store = require('electron-store');
+
+const store = new Store();
 
 /* Home Page
  * The home page will have a centered upload icon if
@@ -27,7 +30,8 @@ import { FileObjectType } from './components/Types';
  * row or filename to navigate to a setup page.
  */
 const Home = () => {
-  const [files, updateFiles] = useState<Array<FileObjectType>>([]);
+  const [files, setFiles] = useState(store.store);
+  const keys = Object.keys(files);
 
   return (
     <div className="home-container">
@@ -41,24 +45,24 @@ const Home = () => {
                   <ClickableUploadIcon
                     height="70px"
                     width="70px"
-                    files={files}
-                    updateFiles={updateFiles}
+                    setFiles={setFiles}
                   />
                 </Col>
               </Row>
             </Container>
           </Row>
           <Row>
-            {files.length > 0 && (
+            {keys.length > 0 && (
               <Container id="files-container">
                 <Row>
                   <Col>
-                    {files.map((file) => (
+                    {keys.map((key) => (
                       <ClickableFileRow
-                        key={file.path}
-                        file={file}
+                        key={files[key].path}
+                        file={files[key]}
                         height="40px"
                         width="40px"
+                        setFiles={setFiles}
                       />
                     ))}
                   </Col>
