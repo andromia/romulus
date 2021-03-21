@@ -19,3 +19,7 @@ export type ClickableFileType = {
   height: string; // "100px"
   file: FileObjectType;
 };
+
+export type RunButtonType = {
+  path: string;
+};

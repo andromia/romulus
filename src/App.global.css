@@ -129,32 +129,32 @@ a:hover {
   display: none;
 }
 
-.script-name {
+.file-name {
   font-size: 14px;
   margin-top: 7px;
   float: left;
 }
 
-.script-icon {
+.file-icon {
   margin-top: 3px;
 }
 
-.clickable-script-name {
+.clickable-file-name {
   height: 40px;
   display: flex;
   margin-left: 10px;
 }
 
-.script-remove-button {
+.file-remove-button {
   background-color: rgb(216, 68, 68);
+}
+
+.file-run-button {
+  background-color: rgb(86, 150, 86);
 }
 
 .home-button-row {
   margin-top: 10px;
-}
-
-.home-button {
-  background-color: rgb(86, 150, 86);
 }
 
 .file-profile-form-container {

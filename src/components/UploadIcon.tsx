@@ -9,17 +9,23 @@ const ClickableUploadIcon = (props: ClickableUploadIconType): ReactElement => {
   const { files, updateFiles, height, width } = props;
 
   const handleChange = (e: any) => {
-    if (e.target.files.length) {
-      updateFiles([
-        ...files,
-        {
-          name: e.target.files[0].name,
-          preview: URL.createObjectURL(e.target.files[0]),
-          raw: e.target.files[0],
-          path: e.target.files[0].path,
-        },
-      ]);
+    if (!e.target.files.length) {
+      return;
     }
+
+    if (!e.target.files[0].path.endsWith('.py')) {
+      return; // TODO: notification?
+    }
+
+    updateFiles([
+      ...files,
+      {
+        name: e.target.files[0].name,
+        preview: URL.createObjectURL(e.target.files[0]),
+        raw: e.target.files[0],
+        path: e.target.files[0].path,
+      },
+    ]);
   };
 
   return (

@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import RunButton from './RunButton';
 import { ClickableFileType } from './Types';
 import icon from '../../assets/python.png';
 
@@ -15,29 +16,29 @@ const ClickableFileRow = (props: ClickableFileType) => {
 
   return (
     <Row className="file-row">
-      <Col sm={1} className="script-icon-col">
+      <Col sm={1} className="file-icon-col">
         <Image
-          className="interactive-icon script-icon"
+          className="interactive-icon file-icon"
           src={icon}
           width={width}
           height={height}
           alt="icon"
         />
       </Col>
-      <Col sm={8} className="script-name-col">
+      <Col sm={8} className="file-name-col">
         <Button
-          className="clickable-script-name btn btn-secondary"
+          className="clickable-file-name btn btn-secondary"
           onClick={() => history.push('/File')}
           title={file.path}
         >
-          <h1 className="script-name">{file.name}</h1>
+          <h1 className="file-name">{file.name}</h1>
         </Button>
       </Col>
-      <Col sm={1}>
-        <Button className="script-run-button">Run</Button>
+      <Col md={1} className="file-row-run-button-col">
+        <RunButton path={file.path} />
       </Col>
-      <Col sm={1}>
-        <Button className="script-remove-button">Remove</Button>
+      <Col md={2} className="file-row-remove-button-col">
+        <Button className="file-remove-button">Remove</Button>
       </Col>
     </Row>
   );

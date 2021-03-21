@@ -14,7 +14,7 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import TitleBar from './components/TitleBar';
 import ClickableUploadIcon from './components/UploadIcon';
-import ClickableFileRow from './components/File';
+import ClickableFileRow from './components/ClickableFileRow';
 import { FileObjectType } from './components/Types';
 
 /* Home Page
@@ -97,8 +97,8 @@ const FileProfile = () => {
       </Container>
       <Container>
         <h1>File Name</h1>
-        <Button className="script-run-button">Run</Button>
-        <Button className="script-remove-button">Remove</Button>
+        <Button className="file-run-button">Run</Button>
+        <Button className="file-remove-button">Remove</Button>
         <hr color="#45484e" />
         <Container className="file-profile-form-container">
           <Form>
