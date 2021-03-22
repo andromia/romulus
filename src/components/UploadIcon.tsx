@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from 'react';
+import React, { useRef } from 'react';
 import Image from 'react-bootstrap/Image';
 import { ClickableUploadIconType } from './Types';
 import icon from '../../assets/upload.svg';
@@ -11,6 +11,7 @@ const store = new Store();
 
 const ClickableUploadIcon = (props: ClickableUploadIconType) => {
   const { setFiles, height, width } = props;
+  const inputRef = useRef(null);
 
   const handleChange = (e: any) => {
     if (!e.target.files.length) {
@@ -24,6 +25,10 @@ const ClickableUploadIcon = (props: ClickableUploadIconType) => {
     const { name, path } = e.target.files[0];
     store.set(path.slice(0, path.length - 3), { name, path, type: 'py' });
     setFiles(store.store);
+
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore: Object is possibly 'null'.
+    inputRef.current.value = '';
   };
 
   return (
@@ -43,6 +48,7 @@ const ClickableUploadIcon = (props: ClickableUploadIconType) => {
         type="file"
         name="upload"
         onChange={handleChange}
+        ref={inputRef}
       />
     </div>
   );

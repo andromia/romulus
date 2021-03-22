@@ -29,7 +29,7 @@ const ClickableFileRow = (props: ClickableFileType) => {
       <Col sm={8} className="file-name-col">
         <Button
           className="clickable-file-name btn btn-secondary"
-          onClick={() => history.push('/File')}
+          onClick={() => history.push('/File', { file })}
           title={file.path}
         >
           <h1 className="file-name">{file.name}</h1>
@@ -39,7 +39,7 @@ const ClickableFileRow = (props: ClickableFileType) => {
         <RunButton path={file.path} />
       </Col>
       <Col md={2} className="file-row-remove-button-col">
-        <RemoveButton path={file.path} setFiles={setFiles} />
+        <RemoveButton file={file} setFiles={setFiles} />
       </Col>
     </Row>
   );

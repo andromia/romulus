@@ -4,6 +4,7 @@ import {
   Switch,
   Route,
   useHistory,
+  useLocation,
 } from 'react-router-dom';
 import './App.global.css';
 import Container from 'react-bootstrap/Container';
@@ -12,6 +13,7 @@ import Table from 'react-bootstrap/Table';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import RunButton from './components/RunButton';
 import TitleBar from './components/TitleBar';
 import ClickableUploadIcon from './components/UploadIcon';
 import ClickableFileRow from './components/ClickableFileRow';
@@ -31,7 +33,7 @@ const store = new Store();
  */
 const Home = () => {
   const [files, setFiles] = useState(store.store);
-  const keys = Object.keys(files);
+  const fileKeys = Object.keys(files);
 
   return (
     <div className="home-container">
@@ -52,11 +54,11 @@ const Home = () => {
             </Container>
           </Row>
           <Row>
-            {keys.length > 0 && (
+            {fileKeys.length > 0 && (
               <Container id="files-container">
                 <Row>
                   <Col>
-                    {keys.map((key) => (
+                    {fileKeys.map((key) => (
                       <ClickableFileRow
                         key={files[key].path}
                         file={files[key]}
@@ -86,6 +88,7 @@ const Home = () => {
  */
 const FileProfile = () => {
   const history = useHistory();
+  const location = useLocation();
 
   return (
     <div className="home-container">
@@ -100,9 +103,9 @@ const FileProfile = () => {
         </Row>
       </Container>
       <Container>
-        <h1>File Name</h1>
-        <Button className="file-run-button">Run</Button>
-        <Button className="file-remove-button">Remove</Button>
+        <h1>{location.state.file.name}</h1>
+        <RunButton path={location.state.file.path} />
+        {/* <RemoveButton path={location.state.file.path} setFiles={null} /> */}
         <hr color="#45484e" />
         <Container className="file-profile-form-container">
           <Form>

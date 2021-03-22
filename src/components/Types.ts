@@ -26,6 +26,6 @@ export type RunButtonType = {
 };
 
 export type RemoveButtonType = {
-  path: string;
+  file: FileObjectType;
   setFiles: any;
 };

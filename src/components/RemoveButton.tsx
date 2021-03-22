@@ -8,10 +8,11 @@ const Store = require('electron-store');
 const store = new Store();
 
 const RemoveButton = (props: RemoveButtonType) => {
-  const { setFiles, path } = props;
+  const { setFiles, file } = props;
+  const fileKey: string = file.path.slice(0, file.path.length - 3);
 
   const handleRemoveButton = () => {
-    store.delete(path.slice(0, path.length - 3));
+    store.delete(fileKey);
     setFiles(store.store);
   };
 
