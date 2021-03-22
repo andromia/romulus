@@ -105,7 +105,13 @@ const FileProfile = () => {
       <Container>
         <h1>{location.state.file.name}</h1>
         <RunButton path={location.state.file.path} />
-        {/* <RemoveButton path={location.state.file.path} setFiles={null} /> */}
+        <Button
+          className="file-remove-button"
+          title="FileProfile remove button unavailable"
+          disabled
+        >
+          Remove
+        </Button>
         <hr color="#45484e" />
         <Container className="file-profile-form-container">
           <Form>
