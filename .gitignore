@@ -50,4 +50,4 @@ npm-debug.log.*
 *.scss.d.ts
 
 # ignoring diagram until finalized
-docs/Romulus v0.0.1.drawio
+docs/
