@@ -13,7 +13,7 @@ export type ClickableUploadIconType = {
   setFiles: any;
 };
 
-export type ClickableFileType = {
+export type ClickableFileRowType = {
   key: string;
   width: string; // "100px"
   height: string; // "100px"

@@ -8,10 +8,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import RunButton from './RunButton';
 import RemoveButton from './RemoveButton';
-import { ClickableFileType } from './Types';
+import { ClickableFileRowType } from './Types';
 import icon from '../../assets/python.png';
 
-const ClickableFileRow = (props: ClickableFileType) => {
+const ClickableFileRow = (props: ClickableFileRowType) => {
   const { height, width, file, setFiles } = props;
   const history = useHistory();
 

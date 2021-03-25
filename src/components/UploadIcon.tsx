@@ -19,13 +19,24 @@ const ClickableUploadIcon = (props: ClickableUploadIconType) => {
     }
 
     for (let i = 0; i < e.target.files.length; i += 1) {
-      if (!e.target.files[0].path.endsWith('.py')) {
+      console.log(e.target.files[i]);
+      if (!e.target.files[i].path.endsWith('.py')) {
         return; // TODO: notification?
       }
 
       const { name, path } = e.target.files[i];
       store.set(path.slice(0, path.length - 3), { name, path, type: 'py' });
-      setFiles(store.store);
+
+      // reverse ordering for most recent add at top of store
+      let keys: Array<string> = Object.keys(store.store);
+      keys = keys.reverse();
+      const orderedStore = {};
+
+      for (let j = 0; j < keys.length; j += 1) {
+        (orderedStore as any)[keys[j]] = store.store[keys[j]];
+      }
+
+      setFiles(orderedStore);
     }
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
