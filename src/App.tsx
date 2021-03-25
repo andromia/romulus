@@ -90,15 +90,15 @@ const FileProfile = () => {
     <div id="file-profile-parent-div">
       <TitleBar />
       <Container id="file-profile-main-container">
-        <Row className="thirty-percent-centered-row mx-auto">
+        <Row className="fifty-percent-centered-row mx-auto">
           <h1>{location.state.file.name}</h1>
         </Row>
-        <Row className="thirty-percent-centered-row mx-auto">
+        <Row className="fifty-percent-centered-row mx-auto">
           <h6 className="file-path-text">
             <i>{location.state.file.path}</i>
           </h6>
         </Row>
-        <Row className="thirty-percent-centered-row mx-auto">
+        <Row className="fifty-percent-centered-row mx-auto">
           <Button className="home-button" onClick={() => history.push('/')}>
             Home
           </Button>
