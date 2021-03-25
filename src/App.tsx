@@ -36,44 +36,40 @@ const Home = () => {
   const fileKeys = Object.keys(files);
 
   return (
-    <div className="home-container">
+    <div id="home-parent-div">
       <TitleBar />
-      <div className="center-div">
-        <Container>
-          <Row>
-            <Container id="home-upload-icon-container">
-              <Row>
-                <Col>
-                  <ClickableUploadIcon
-                    height="70px"
-                    width="70px"
-                    setFiles={setFiles}
-                  />
-                </Col>
-              </Row>
-            </Container>
+      <Container id="home-main-container">
+        <Row id="home-upload-icon-row">
+          <Col>
+            <ClickableUploadIcon
+              height="70px"
+              width="70px"
+              setFiles={setFiles}
+            />
+          </Col>
+        </Row>
+        {fileKeys.length === 0 && (
+          <Row
+            id="upload-text-row"
+            className="fifty-percent-centered-row mx-auto"
+          >
+            <h1>Upload Files</h1>
           </Row>
-          <Row>
-            {fileKeys.length > 0 && (
-              <Container id="files-container">
-                <Row>
-                  <Col>
-                    {fileKeys.map((key) => (
-                      <ClickableFileRow
-                        key={files[key].path}
-                        file={files[key]}
-                        height="40px"
-                        width="40px"
-                        setFiles={setFiles}
-                      />
-                    ))}
-                  </Col>
-                </Row>
-              </Container>
-            )}
-          </Row>
-        </Container>
-      </div>
+        )}
+        {fileKeys.length > 0 && (
+          <Container id="home-files-div">
+            {fileKeys.map((key) => (
+              <ClickableFileRow
+                key={files[key].path}
+                file={files[key]}
+                height="40px"
+                width="40px"
+                setFiles={setFiles}
+              />
+            ))}
+          </Container>
+        )}
+      </Container>
     </div>
   );
 };
@@ -91,83 +87,92 @@ const FileProfile = () => {
   const location = useLocation();
 
   return (
-    <div className="home-container">
+    <div id="file-profile-parent-div">
       <TitleBar />
-      <Container fluid className="home-button-container">
-        <Row className="home-button-row">
-          <Col md={12} className="text-right">
-            <Button className="home-button" onClick={() => history.push('/')}>
-              Home
-            </Button>
-          </Col>
+      <Container id="file-profile-main-container">
+        <Row className="thirty-percent-centered-row mx-auto">
+          <h1>{location.state.file.name}</h1>
         </Row>
-      </Container>
-      <Container>
-        <h1>{location.state.file.name}</h1>
-        <RunButton path={location.state.file.path} />
-        <Button
-          className="file-remove-button"
-          title="FileProfile remove button unavailable"
-          disabled
-        >
-          Remove
-        </Button>
-        <hr color="#45484e" />
-        <Container className="file-profile-form-container">
-          <Form>
-            <Form.Group>
-              <Form.Label className="file-profile-form-label">Date</Form.Label>
-              <Form.Control type="date" />
-              <Form.Label className="file-profile-form-label">Time</Form.Label>
-              <Form.Control type="time" />
-            </Form.Group>
-          </Form>
-        </Container>
-        <Container className="file-profile-history-table-container">
-          {/* TODO: use d3.js or query framework */}
-          <Table
-            striped
-            bordered
-            hover
-            variant="dark"
-            className="file-profile-history-table"
+        <Row className="thirty-percent-centered-row mx-auto">
+          <h6 className="file-path-text">
+            <i>{location.state.file.path}</i>
+          </h6>
+        </Row>
+        <Row className="thirty-percent-centered-row mx-auto">
+          <Button className="home-button" onClick={() => history.push('/')}>
+            Home
+          </Button>
+          <RunButton path={location.state.file.path} />
+          <Button
+            className="file-remove-button"
+            title="FileProfile remove button unavailable"
+            disabled
           >
-            <thead>
-              <tr>
-                <th>Start</th>
-                <th>Finish</th>
-                <th>Duration</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-              </tr>
-              <tr>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-              </tr>
-              <tr>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-              </tr>
-              <tr>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-              </tr>
-            </tbody>
-          </Table>
-        </Container>
+            Remove
+          </Button>
+        </Row>
+        <hr color="#45484e" />
+        <Row className="fifty-percent-centered-row mx-auto">
+          <Form>
+            <Row>
+              <Col>
+                <Form.Label className="file-profile-form-label">
+                  Date
+                </Form.Label>
+                <Form.Control type="date" />
+              </Col>
+              <Col>
+                <Form.Label className="file-profile-form-label">
+                  Time
+                </Form.Label>
+                <Form.Control type="time" />
+              </Col>
+            </Row>
+          </Form>
+        </Row>
+        {/* TODO: use d3.js or query framework */}
+        <Table
+          striped
+          bordered
+          hover
+          variant="dark"
+          className="file-profile-history-table"
+        >
+          <thead>
+            <tr>
+              <th>Start</th>
+              <th>Finish</th>
+              <th>Duration</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+            </tr>
+          </tbody>
+        </Table>
       </Container>
     </div>
   );

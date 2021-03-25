@@ -32,10 +32,10 @@ const ClickableUploadIcon = (props: ClickableUploadIconType) => {
   };
 
   return (
-    <div>
+    <div className="upload-icon-div">
       <label htmlFor="clickable-upload">
         <Image
-          className="interactive-icon"
+          className="interactive-icon upload-icon"
           src={icon}
           width={width}
           height={height}
