@@ -18,13 +18,15 @@ const ClickableUploadIcon = (props: ClickableUploadIconType) => {
       return;
     }
 
-    if (!e.target.files[0].path.endsWith('.py')) {
-      return; // TODO: notification?
-    }
+    for (let i = 0; i < e.target.files.length; i += 1) {
+      if (!e.target.files[0].path.endsWith('.py')) {
+        return; // TODO: notification?
+      }
 
-    const { name, path } = e.target.files[0];
-    store.set(path.slice(0, path.length - 3), { name, path, type: 'py' });
-    setFiles(store.store);
+      const { name, path } = e.target.files[i];
+      store.set(path.slice(0, path.length - 3), { name, path, type: 'py' });
+      setFiles(store.store);
+    }
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore: Object is possibly 'null'.
@@ -49,6 +51,7 @@ const ClickableUploadIcon = (props: ClickableUploadIconType) => {
         name="upload"
         onChange={handleChange}
         ref={inputRef}
+        multiple
       />
     </div>
   );
