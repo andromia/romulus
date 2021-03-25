@@ -49,5 +49,5 @@ npm-debug.log.*
 *.sass.d.ts
 *.scss.d.ts
 
-# ignoring docs folder until finalized
-docs/
+# ignoring diagram until finalized
+docs/Romulus v0.0.1.drawio
