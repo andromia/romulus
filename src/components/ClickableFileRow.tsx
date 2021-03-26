@@ -22,7 +22,7 @@ const ClickableFileRow = (props: ClickableFileRowType) => {
   const history = useHistory();
   const inputRef = useRef(null);
 
-  const handlePythonExeChange = (e: any) => {
+  const handlePythonExeUpdate = (e: any) => {
     if (!e.target.files.length) {
       return;
     }
@@ -56,7 +56,7 @@ const ClickableFileRow = (props: ClickableFileRowType) => {
           className="file-upload"
           type="file"
           name="py"
-          onChange={handlePythonExeChange}
+          onChange={handlePythonExeUpdate}
           ref={inputRef}
         />
       </Col>
