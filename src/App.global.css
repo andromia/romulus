@@ -192,6 +192,13 @@ a:hover {
   margin-top: 10px;
 }
 
+.centered-row {
+  width: 100%;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
 .thirty-percent-centered-row {
   width: 30%;
   position: relative;

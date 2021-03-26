@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export type FileObjectType = {
+  id: number;
   name: string;
-  preview: string;
-  raw: string;
   path: string;
-  type: string;
+  pythonExe: string;
 };
 
 export type ClickableUploadIconType = {
@@ -22,7 +21,7 @@ export type ClickableFileRowType = {
 };
 
 export type RunButtonType = {
-  path: string;
+  file: FileObjectType;
 };
 
 export type RemoveButtonType = {

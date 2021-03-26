@@ -2,6 +2,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import { RemoveButtonType } from './Types';
+import * as common from '../common';
 
 const Store = require('electron-store');
 
@@ -9,7 +10,7 @@ const store = new Store();
 
 const RemoveButton = (props: RemoveButtonType) => {
   const { setFiles, file } = props;
-  const fileKey: string = file.path.slice(0, file.path.length - 3);
+  const fileKey: string = common.parseKeyFromFilePath(file.path);
 
   const handleRemoveButton = () => {
     store.delete(fileKey);

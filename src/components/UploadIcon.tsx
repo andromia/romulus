@@ -4,6 +4,7 @@ import React, { useRef } from 'react';
 import Image from 'react-bootstrap/Image';
 import { ClickableUploadIconType } from './Types';
 import icon from '../../assets/upload.svg';
+import * as common from '../common';
 
 const Store = require('electron-store');
 
@@ -18,26 +19,32 @@ const ClickableUploadIcon = (props: ClickableUploadIconType) => {
       return;
     }
 
+    let k = 0;
+    const ids = Object.keys(store.store).map((key) => store.store[key].id);
+
+    if (ids.length > 0) {
+      k = Math.max(...ids) + 1;
+    }
+
     for (let i = 0; i < e.target.files.length; i += 1) {
-      console.log(e.target.files[i]);
       if (!e.target.files[i].path.endsWith('.py')) {
         return; // TODO: notification?
       }
 
       const { name, path } = e.target.files[i];
-      store.set(path.slice(0, path.length - 3), { name, path, type: 'py' });
+      const key = common.parseKeyFromFilePath(path);
+      store.set(key, {
+        id: k,
+        name,
+        path,
+        pythonExe: 'python',
+      });
 
-      // reverse ordering for most recent add at top of store
-      let keys: Array<string> = Object.keys(store.store);
-      keys = keys.reverse();
-      const orderedStore = {};
-
-      for (let j = 0; j < keys.length; j += 1) {
-        (orderedStore as any)[keys[j]] = store.store[keys[j]];
-      }
-
-      setFiles(orderedStore);
+      k += 1;
     }
+
+    const sortedStore = common.sortStore(store.store);
+    setFiles(sortedStore);
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore: Object is possibly 'null'.

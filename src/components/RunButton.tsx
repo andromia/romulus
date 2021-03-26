@@ -6,20 +6,23 @@ import { RunButtonType } from './Types';
 const { exec } = require('child_process');
 
 const RunButton = (props: RunButtonType) => {
-  const { path } = props;
+  const { file } = props;
 
   const handleRunButton = () => {
-    exec(`python ${path}`, (error: any, stdout: any, stderr: any) => {
-      if (error) {
-        console.log(`error: ${error.message}`);
-        return;
+    exec(
+      `"${file.pythonExe}" "${file.path}"`,
+      (error: any, stdout: any, stderr: any) => {
+        if (error) {
+          console.log(`error: ${error.message}`);
+          return;
+        }
+        if (stderr) {
+          console.log(`stderr: ${stderr}`);
+          return;
+        }
+        console.log(`stdout: ${stdout}`);
       }
-      if (stderr) {
-        console.log(`stderr: ${stderr}`);
-        return;
-      }
-      console.log(`stdout: ${stdout}`);
-    });
+    );
   };
 
   return (

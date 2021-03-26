@@ -1,3 +1,4 @@
+// TODO: Object.keys() nonsense
 import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
@@ -93,16 +94,18 @@ const FileProfile = () => {
         <Row className="fifty-percent-centered-row mx-auto">
           <h1>{location.state.file.name}</h1>
         </Row>
-        <Row className="fifty-percent-centered-row mx-auto">
+        <Row className="centered-row mx-auto">
           <h6 className="file-path-text">
-            <i>{location.state.file.path}</i>
+            <i>
+              {location.state.file.pythonExe} {location.state.file.path}
+            </i>
           </h6>
         </Row>
         <Row className="fifty-percent-centered-row mx-auto">
           <Button className="home-button" onClick={() => history.push('/')}>
             Home
           </Button>
-          <RunButton path={location.state.file.path} />
+          <RunButton file={location.state.file} />
           <Button
             className="file-remove-button"
             title="FileProfile remove button unavailable"
