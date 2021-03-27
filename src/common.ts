@@ -41,7 +41,7 @@ export const sortStore = (store: any) => {
   let data = keys.map((key: string) => [key, store[key].id]);
 
   data = data.sort((a: any, b: any) => {
-    return a[1] - b[1];
+    return b[1] - a[1];
   });
 
   const sortedStore = {};
