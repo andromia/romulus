@@ -26,7 +26,7 @@ Run (simple `exec` implementation until scheduler is built; see console output f
 
 <a href="https://gyazo.com/de42a2c249f1fdf300f7e9315544f279"><img src="https://i.gyazo.com/de42a2c249f1fdf300f7e9315544f279.gif" alt="Image from Gyazo" width="1006"/></a>
 
-Select your Python to use per script.
+Select a Python interpreter to use per script.
 
 <a href="https://gyazo.com/f98db3ccc8632b233b1409b1c0aea999"><img src="https://i.gyazo.com/f98db3ccc8632b233b1409b1c0aea999.gif" alt="Image from Gyazo" width="996"/></a>
 
