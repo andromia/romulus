@@ -9,9 +9,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import RunButton from './RunButton';
 import RemoveButton from './RemoveButton';
-import { ClickableFileRowType } from './Types';
+import { ClickableFileRowType, parseKeyFromFilePath } from '../common';
 import icon from '../../assets/python.png';
-import * as common from '../common';
 
 const Store = require('electron-store');
 
@@ -20,14 +19,14 @@ const store = new Store();
 const ClickableFileRow = (props: ClickableFileRowType) => {
   const { height, width, file, setFiles } = props;
   const history = useHistory();
-  const inputRef = useRef(null);
+  const pythonExeInputRef = useRef(null);
 
-  const handlePythonExeChange = (e: any) => {
+  const handlePythonExeUpdate = (e: any) => {
     if (!e.target.files.length) {
       return;
     }
 
-    const key = common.parseKeyFromFilePath(file.path);
+    const key = parseKeyFromFilePath(file.path);
     const newFile = file;
     const newPython = e.target.files[0].path;
     newFile.pythonExe = newPython;
@@ -36,7 +35,7 @@ const ClickableFileRow = (props: ClickableFileRowType) => {
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore: Object is possibly 'null'.
-    inputRef.current.value = '';
+    pythonExeInputRef.current.value = '';
   };
 
   return (
@@ -56,8 +55,8 @@ const ClickableFileRow = (props: ClickableFileRowType) => {
           className="file-upload"
           type="file"
           name="py"
-          onChange={handlePythonExeChange}
-          ref={inputRef}
+          onChange={handlePythonExeUpdate}
+          ref={pythonExeInputRef}
         />
       </Col>
       <Col sm={8} className="file-name-col">

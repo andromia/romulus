@@ -16,7 +16,7 @@ Run `yarn package` to package it up into `release/`.
 
 ## Development Update
 
-_As of 3/25/21_
+_As of 3/26/21_
 
 Fleshing out core UI components and basic functionality.
 
@@ -26,6 +26,14 @@ Run (simple `exec` implementation until scheduler is built; see console output f
 
 <a href="https://gyazo.com/de42a2c249f1fdf300f7e9315544f279"><img src="https://i.gyazo.com/de42a2c249f1fdf300f7e9315544f279.gif" alt="Image from Gyazo" width="1006"/></a>
 
-Next milestone implements additional `electron-store` data for schedule and python executable, updated _File Profile_ rendering, notifications for upload errors, notifications for file runs, and general UI improvements.
+Select your Python to use per script.
 
-`v0.0.1` will be completed with a scheduler service implementation and more robust `electron-store` utilization.
+<a href="https://gyazo.com/f98db3ccc8632b233b1409b1c0aea999"><img src="https://i.gyazo.com/f98db3ccc8632b233b1409b1c0aea999.gif" alt="Image from Gyazo" width="996"/></a>
+
+Next milestone implements save schedule times to `electron-store`, updated _File Profile_ rendering, notifications for upload errors, notifications for file runs, and general UI and code improvements.
+
+`v0.0.1` will be completed with a same-process scheduler and more robust `electron-store` utilization.
+
+`v0.0.2` focuses on dev enironment and abstracting the scheduler to a separate service built with go-lang.
+
+And less concrete, `v0.0.3` improves code structure to leverage React properly. `v0.0.4` adds basic electron improvements (`right-click` for _Help_, _Submit a Bug_, _Discord_, and _GitHub_).

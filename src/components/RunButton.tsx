@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import { RunButtonType } from './Types';
+import { RunButtonType } from '../common';
 
 const { exec } = require('child_process');
 
