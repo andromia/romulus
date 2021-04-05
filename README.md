@@ -1,3 +1,5 @@
+This project is under development.
+
 # romulus
 
 A desktop application for scheduling python scripts.
