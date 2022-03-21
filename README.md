@@ -1,4 +1,4 @@
-This project is under development.
+This project is no longer under development. See [Remus](https://github.com/cnpryer/remus) for future development.
 
 # romulus
 
